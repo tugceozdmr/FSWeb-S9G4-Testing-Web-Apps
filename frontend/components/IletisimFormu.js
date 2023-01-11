@@ -70,11 +70,12 @@ const IletisimFormu = () => {
 
   return (
     <div className="App">
-      <h1>İletişim Formu</h1>
+      <h1 data-testId="form-title">İletişim Formu</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="ad">Ad*</label>
           <input
+            data-testid="isim"
             onChange={handleChange}
             name="ad"
             value={form.ad}
@@ -87,41 +88,44 @@ const IletisimFormu = () => {
         <div>
           <label htmlFor="soyad">Soyad*</label>
           <input
+          data-testid="soyad"
             onChange={handleChange}
             id="soyad"
             name="soyad"
             value={form.soyad}
             placeholder="Mansız"
           />
-          {(errors.soyad) && <p data-testid="error">Hata: {errors.soyad}</p>}
+          {(errors.soyad) && <p data-testid="error-soyad">Hata: {errors.soyad}</p>}
         </div>
 
         <div>
           <label htmlFor="email">Email*</label>
           <input
+           data-testid="mail"
             onChange={handleChange}
             id="email"
             name="email"
             value={form.email}
             placeholder="yüzyılıngolcüsü@hotmail.com"
           />
-          {(errors.email) && <p data-testid="error">Hata: {errors.email}</p>}
+          {(errors.email) && <p data-testid="error-mail">Hata: {errors.email}</p>}
         </div>
 
         <div>
           <label htmlFor="mesaj">Mesaj</label>
           <input
+          data-testid="message"
             onChange={handleChange}
             name="mesaj"
             id="mesaj"
             value={form.mesaj}
           />
-          {(errors.mesaj) && <p data-testid="error">Error: {errors.mesaj}</p>}
+          {(errors.mesaj) && <p data-testid="error-mesaj">Error: {errors.mesaj}</p>}
         </div>
 
         {displayData && <Goruntule form={form}/>}
 
-        <button>Gönder</button>
+        <button data-testid="submit-button">Gönder</button>
       </form>
     </div>
   );
